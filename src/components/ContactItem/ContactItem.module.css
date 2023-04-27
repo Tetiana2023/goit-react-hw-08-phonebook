@@ -1,0 +1,14 @@
+.item {
+    display: flex;
+    gap: 15px;
+}
+.button{
+    border: 2px solid blue;
+    border-radius: 5px;
+    color: black;
+    background-color:white;
+    cursor: pointer;
+}
+.button:hover{
+    border: 2px solid red; 
+}
