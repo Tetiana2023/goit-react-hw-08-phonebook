@@ -1,6 +1,15 @@
 .list{
     display: flex;
     flex-direction: column;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
  
+}
+.form{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
 }

@@ -4,14 +4,14 @@ import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import { selectFiltredContacts } from 'redux/selectors';
+import { selectFiltredContacts } from 'redux/contacts/contactsSelectors';
 // import { deleteContact } from 'services/fetch';
 
 export const ContactList = () => {
   const FiltredContacts = useSelector(selectFiltredContacts);
 
   return (
-    <ul>
+    <ul className={css.form}>
       {FiltredContacts.map(contact => (
         <li className={css.list} key={contact.id}>
           <ContactItem

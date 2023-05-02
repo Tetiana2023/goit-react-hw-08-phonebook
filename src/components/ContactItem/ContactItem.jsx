@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './ContactItem.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/contactsOperations';
+// import Button from '@mui/material/Button';
 
 export const ContactItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
   // const { name, number, id } = contact;
 
   const onClick = ()=> {
-    dispatch(deleteContact({id}))
+    dispatch(deleteContact(id))
   }
   return (
     <>

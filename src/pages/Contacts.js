@@ -7,13 +7,13 @@ import { Section } from 'components/Section/Section';
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
+import { selectContacts, selectError, selectIsLoading } from 'redux/contacts/contactsSelectors';
+import { fetchContacts } from 'redux/contacts/contactsOperations';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 
 // import css from './App.module.css';
 
-export const App = () => {
+export default function Contacts () {
   const contacts = useSelector(selectContacts);
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);

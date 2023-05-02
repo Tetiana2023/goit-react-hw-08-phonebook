@@ -1,37 +1,38 @@
-import React from "react";
+import React from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from "react-redux";
-import { selectFilter} from 'redux/selectors';
-import {updateFilter} from 'redux/filterSlice'
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilter } from 'redux/contacts/contactsSelectors';
+import { updateFilter } from 'redux/filter/filterSlice';
+import TextField from '@mui/material/TextField';
+import css from './FilterContact.module.css';
 
+export const FilterContact = () => {
+  const filter = useSelector(selectFilter);
+  const dispatch = useDispatch();
 
-export const FilterContact =() => {
-    const filter = useSelector(selectFilter);
-    const dispatch = useDispatch();
+  // const hendleFilter = event => {
+  //     dispatch(updateFilter(event.target.value));
+  //   };
 
-    // const hendleFilter = event => {
-    //     dispatch(updateFilter(event.target.value));
-    //   };
-
-   const filterId= nanoid(); 
-   return (
-        <>
-        <label htmlFor={filterId}>Find contacts by name
-            <input id={filterId}
-            type="text"
-            value={filter}
-            name="filter"
-            onChange={event => 
-                dispatch(updateFilter(event.target.value))
-              }
-            >
-            </input>
-        </label>
-        </>
-    )
-}
+  const filterId = nanoid();
+  return (
+    <div className={css.form}>
+    <TextField
+      htmlFor={filterId}
+      id="outlined-basic"
+      label="Find contacts by Name"
+      variant="outlined"
+      size="small"
+      type="text"
+      value={filter}
+      name="filter"
+      onChange={event => dispatch(updateFilter(event.target.value))}
+    />
+    </div>
+  );
+};
 FilterContact.propType = {
-    value:PropTypes.string.isRequired,
-    hendleFilter:PropTypes.func.isRequired,
-}
+  value: PropTypes.string.isRequired,
+  hendleFilter: PropTypes.func.isRequired,
+};
