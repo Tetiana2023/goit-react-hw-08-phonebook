@@ -1,10 +1,9 @@
 import React from 'react';
-// import { FormContact } from './ContactForm/ContactForm';
+
 import { ContactList } from 'components/ContactList/ContactList'
 import { FilterContact } from 'components/FilterContact/FilterContact';
-// import {Loader} from './Loader/Loader';
+import {Loader} from 'components/Loader/Loader';
 import { Section } from 'components/Section/Section';
-
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts, selectError, selectIsLoading } from 'redux/contacts/contactsSelectors';
@@ -28,12 +27,12 @@ export default function Contacts () {
       <Section title="Phonebook">
         <ContactForm />
       </Section>
-      {isLoading && !error && <p>Loading...</p> } 
+     
       {contacts.length > 0 && (
         <Section title="Contacts">
           <FilterContact />
           <ContactList/>
-         
+          {isLoading && !error && <Loader/> } 
         </Section>
       )}
     </div>
